@@ -1,0 +1,34 @@
+EXERCÍCIOS VIEW
+
+1) Crie uma VIEW chamada CLIENTES_MAIORES_VIEW.
+
+CREATE OR REPLACE VIEW bd_estrutura.CLIENTES_MAIORES_VIEW AS 
+	Select bd_estrutura.CLIENTE.NOME, TRUNC((current_date - bd_estrutura.CLIENTE.DATANASCIMENTO)/366)
+	IDADE from bd_estrutura.Cliente WHERE TRUNC((current_date - bd_estrutura.CLIENTE.DATANASCIMENTO)/366) > 18;
+
+SELECT * FROM bd_estrutura.CLIENTES_MAIORES_VIEW;
+
+
+2) Crie uma VIEW chamada ULTIMO_PEDIDO_VIEW para exibir qual o último pedido de cada cliente.
+
+CREATE VIEW bd_estrutura.ULTIMO_PEDIDO_VIEW AS
+	Select bd_estrutura.CLIENTE.NOME,  from bd_estrutura.Cliente,
+		   bd_estrutura.PEDIDO.DATAPEDIDO (ORDER BY -bd_estrutura.datapedido)
+
+
+
+3) Crie uma VIEW chamada TABELA_PRODUTO_VIEW para exibir quais os últimos valores praticados para
+cada produto da base.
+
+
+4) Crie uma VIEW chamada LISTA_NOTA_VIEW para exibir quais foram as notas emitidas por mês no ano
+atual.
+
+
+5) Crie uma VIEW chamada PRODUTO_FAVORITO_VIEW para mostrar qual o produto com mais pedidos
+(quantidade) por cada cliente.
+
+
+6) Crie uma VIEW chamada PRODUTOS_DEFASADOS_VIEW para mostrar quais produtos não tem pedidos
+nos últimos três meses.
+
